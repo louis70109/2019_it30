@@ -1,5 +1,7 @@
 # Serverless 安裝並建立第一個專案
 
+[TOC]
+
 ## 建立 AWS 存取金鑰
 
 首先要先有個 AWS 帳號(廢話) ，如果沒有綁定信用卡記得去綁定才能繼續，接下來就可以去就可以去建立鑰匙囉！
@@ -16,3 +18,11 @@ AWS secret & ID key
 export AWS_ACCESS_KEY_ID=<your-key-here>
 export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>
 ```
+
+## 透過 serverless 幫忙建立專案
+
+## 參考
+
+- [sls cli 相關參數](https://serverless.com/framework/docs/providers/aws/cli-reference/)
+- [Serverless](https://serverless.com/)
+- [Serverless Github](https://github.com/serverless/serverless)
