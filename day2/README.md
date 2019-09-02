@@ -18,6 +18,21 @@ AWS secret & ID key
 export AWS_ACCESS_KEY_ID=<your-key-here>
 export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>
 ```
+或是藉由 serverless 指令來幫忙加入參數：
+```
+serverless config credentials --provider aws --key <your-key-here> --secret <your-secret-key-here>
+```
+
+## 重頭開始
+
+使用 npm 全域安裝
+```javascript=
+npm install serverless -g
+```
+```
+
+```
+
 
 ## 透過 serverless 幫忙建立專案
 
