@@ -26,3 +26,4 @@ export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>
 - [sls cli 相關參數](https://serverless.com/framework/docs/providers/aws/cli-reference/)
 - [Serverless](https://serverless.com/)
 - [Serverless Github](https://github.com/serverless/serverless)
+- [serverless install](https://serverless.com/framework/docs/providers/aws/guide/quick-start/)
