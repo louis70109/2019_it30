@@ -18,7 +18,9 @@ AWS secret & ID key
 export AWS_ACCESS_KEY_ID=<your-key-here>
 export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>
 ```
+
 或是藉由 serverless 指令來幫忙加入參數：
+
 ```
 serverless config credentials --provider aws --key <your-key-here> --secret <your-secret-key-here>
 ```
@@ -26,10 +28,17 @@ serverless config credentials --provider aws --key <your-key-here> --secret <you
 ## 重頭開始
 
 使用 npm 全域安裝
-```javascript=
+
+````javascript=
 npm install serverless -g
-```
-```
+```</your-secret-key-here>
+使用 serverless 從我的 Github 抓下範例專案，若想找範例可以到 [Serverless](https://github.com/serverless/examples) 的 Github repos 下找
+(我有兩個 LINE bot的範例有被 merge 進去哦！[Ruby](https://github.com/serverless/examples/tree/master/aws-ruby-line-bot) 以及 [Python](https://github.com/serverless/examples/tree/master/aws-python-line-echo-bot))
+
+````
+
+serverless install --url https://github.com/louis70109/aws-wsgi-flask -n <YOUR_FILE_NAME>
+cd <YOUR_FILE_NAME>/
 
 ```
 
@@ -42,3 +51,4 @@ npm install serverless -g
 - [Serverless](https://serverless.com/)
 - [Serverless Github](https://github.com/serverless/serverless)
 - [serverless install](https://serverless.com/framework/docs/providers/aws/guide/quick-start/)
+```

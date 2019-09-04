@@ -1,8 +1,4 @@
-# Serverless 介紹
-
 ![](https://i.imgur.com/abW5lFB.jpg)
-
-[TOC]
 
 ## 前言
 
@@ -24,7 +20,7 @@ Serverless 架構是一個基於 FaaS(Function as a Service) 實作的一個服�
 
 依照我目前使用的結果下來，在 heroku 以及 AWS Lambda 同時睡著的情況下，AWS 起床的回應速度大概 1 秒左右，而 heroku 則大概落在 10~15 秒(參考)。
 
-如下圖所示的免費方案，基本上開發階段應該是不至於到 100 萬/月 個請求吧 😆，所以這部分就別擔新大力地給他用下去!
+如下圖所示的免費方案，基本上開發階段應該是不至於到 100 萬/月 個請求吧 ?，所以這部分就別擔新大力地給他用下去!
 
 ![](https://i.imgur.com/hC1Dgz4.png)
 
