@@ -24,6 +24,11 @@ Serverless 架構是一個基於 FaaS(Function as a Service) 實作的一個服�
 
 ![](https://i.imgur.com/hC1Dgz4.png)
 
+## 安裝與使用
+
+[serverless.yaml 的設定參考](https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/)
+[serverless.yaml 的變數傳遞](https://serverless.com/framework/docs/providers/aws/guide/variables/)
+
 ---
 
 ## 結論
