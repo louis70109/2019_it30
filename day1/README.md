@@ -14,6 +14,8 @@ Serverless 架構是一個基於 FaaS(Function as a Service) 實作的一個服�
 
 但我覺得像是 Line Message 這種 stateless 的服務，且只要一個 function + route 就能實作的程式最適合 Serverless 了，讓專案可以簡潔有力，只要寫一個 function+yml 設定並打個指令就部署了，而且 domain 還附贈 SSL，將服務交給 AWS 也不需要擔心，整個就是超級方便啊！
 
+serverless.yaml 是該專案的設定檔，可以把它想像成是 CloudFormation 的 wrapper，事實上也的確是這樣，serverless 背後會把他轉成 CloudFormation 的 template 去發佈。這個設定檔是 serverless 的精髓所在，一切有關 API Gateway 和 Lambda 的設定都在這邊，而底層所需要的資源，他都幫你配置好了，不需要操心。 [ref](https://medium.com/kkstream/%E7%95%B6-aws-api-gateway-lambda-golang-%E9%81%87%E4%B8%8A-ci-cd-1a3b3334ebc)
+
 ---
 
 ## Cold start 問題
@@ -23,6 +25,13 @@ Serverless 架構是一個基於 FaaS(Function as a Service) 實作的一個服�
 如下圖所示的免費方案，基本上開發階段應該是不至於到 100 萬/月 個請求吧 ?，所以這部分就別擔新大力地給他用下去!
 
 ![](https://i.imgur.com/hC1Dgz4.png)
+
+## 安裝與使用
+
+
+
+[serverless.yaml 的設定參考](https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/)
+[serverless.yaml 的變數傳遞](https://serverless.com/framework/docs/providers/aws/guide/variables/)
 
 ---
 
