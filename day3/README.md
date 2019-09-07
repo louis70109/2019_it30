@@ -29,13 +29,23 @@ access_token 則是只能讓通知服務所使用的一個鑰匙
 - 網站就會知道這個 access_token = 來註冊的使用者
 - 然後就可以透過 access_token 發送通知給使用者了?
 
-# 事前通知
+# 事前準備
 
 首先就是要先加入他好友，如果之前有不小心**封鎖**的話要記得解除封鎖哦，不然後續會收不到消息。
 ![https://ithelp.ithome.com.tw/upload/images/20190903/20111481Zno98NSHwL.png](https://ithelp.ithome.com.tw/upload/images/20190903/20111481Zno98NSHwL.png)
 
-> 今年中有帶著朝陽的學弟妹手把手實作 LINE Notify，如果只想自己用的話可以參考我之前[簡報](https://www.slideshare.net/JiaYuLin6/step-by-step-to-use-line-notify-20190527)
-
 下一篇會帶著時做出簡單的 index.html + 使用 Serverless 蓋我們第一個 API 來做認證。
+會使用到 LINE Notify 的 API 為以下三個，不清楚裡面實際上功能的朋友可以嗑一下[官網文件](https://notify-bot.line.me/doc/en/)
+
+```javascript=
+GET https: //notify-bot.line.me/oauth/authorize -> 前往認證拿到 code 參數
+POST https://notify-bot.line.me/oauth/token -> 拿 code 參數換 access_token
+POST https://notify-api.line.me/api/notify -> 發送訊息
+```
+
+# 其他
+
+今年中有帶著朝陽的學弟妹手把手實作 LINE Notify，如果只想自己用的話可以參考我之前[簡報](https://www.slideshare.net/JiaYuLin6/step-by-step-to-use-line-notify-20190527)
+
 [LINE Notify](https://notify-bot.line.me/zh_TW/)
 [如何快速建置一個 LINE Notify 的服務](https://www.evanlin.com/go-line-notify/)
