@@ -1,9 +1,26 @@
-LINE Notify 顧名思義就是通知屬性的服務，這個服務不是 LINE 的 Message API 哦，很多朋友都會把這兩個搞在一起，
+# Notify 介紹
 
-> 今年中有帶著朝陽的學弟妹手把手實作 LINE Notify，[參考](https://www.slideshare.net/JiaYuLin6/step-by-step-to-use-line-notify-20190527)
+LINE Notify 顧名思義就是通知屬性的服務，這個服務不是 LINE 的 Message API，千外別把這兩個搞在一起哦！
 
-當然首先還是先從官網抓的流程圖來解釋一番
-![https://ithelp.ithome.com.tw/upload/images/20190903/20111481CBjMBQhTr9.png](https://ithelp.ithome.com.tw/upload/images/20190903/20111481CBjMBQhTr9.png)
+在實作前要先認識一下在接的 api 服務原理
+首先先參考[LINE Notify 官網](https://notify-bot.line.me/doc/en/)
+開頭的介紹：
+
+> Overview: Becomes a provider based on OAuth2 (https://tools.ietf.org/html/rfc6749). The authentication method is authorization_code. The access token acquired here can only be used for notification services
+
+不負責任翻譯: 這個服務是基於 OAuth2 實作的，授權模式(grant_type)是 authorization_code [參考](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
+access_token 則是只能讓通知服務所使用的一個鑰匙
+
+```
+更詳細的流程可以參考 https://blog.yorkxin.org/2013/09/30/oauth2-4-1-auth-code-grant-flow.html
+```
+
+> The host name for authentication API endpoint is notify-bot.line.me.
+
+然後 API 的網址是 `notify-bot.line.me`
+
+接著我們來看看流程圖
+![https://notify-bot.line.me/doc/en/](https://i.imgur.com/kmt0zrV.png)
 
 - 當使用者拜訪你的網站時，會導向 LINE 請求認證
 - 認證過了之後會回傳一個名為 code 的參數
@@ -12,23 +29,13 @@ LINE Notify 顧名思義就是通知屬性的服務，這個服務不是 LINE �
 - 網站就會知道這個 access_token = 來註冊的使用者
 - 然後就可以透過 access_token 發送通知給使用者了?
 
-> 若還不清楚可以參考 google OAuth2.0 的機制，看完或許就通了哦！
-
 # 事前通知
 
 首先就是要先加入他好友，如果之前有不小心**封鎖**的話要記得解除封鎖哦，不然後續會收不到消息。
 ![https://ithelp.ithome.com.tw/upload/images/20190903/20111481Zno98NSHwL.png](https://ithelp.ithome.com.tw/upload/images/20190903/20111481Zno98NSHwL.png)
 
-### 另外這個服務是沒有辦法儲存訊息的哦
+> 今年中有帶著朝陽的學弟妹手把手實作 LINE Notify，如果只想自己用的話可以參考我之前[簡報](https://www.slideshare.net/JiaYuLin6/step-by-step-to-use-line-notify-20190527)
 
-這是我平常用的，雖然我是用在 heroku 讓他排程通知我，不過這系列就是要讓我們的 Lambda 幫我們送出去給他
-![https://ithelp.ithome.com.tw/upload/images/20190903/20111481APC7DQe8Bx.png](https://ithelp.ithome.com.tw/upload/images/20190903/20111481APC7DQe8Bx.png)
-
-如果參考我的簡報實作的話可以只能拿到自己的 access_toekn
-下一篇會帶著時做出簡單的 index.html + 使用 Serverless 蓋我們第一個 API 來做認證，
-
-### jQuery -> AJAX
-
-# 參考
-
+下一篇會帶著時做出簡單的 index.html + 使用 Serverless 蓋我們第一個 API 來做認證。
 [LINE Notify](https://notify-bot.line.me/zh_TW/)
+[如何快速建置一個 LINE Notify 的服務](https://www.evanlin.com/go-line-notify/)
