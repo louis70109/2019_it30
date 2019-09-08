@@ -1,8 +1,6 @@
 # Serverless 安裝並建立第一個專案
 
-## 重頭開始
-
-## 基礎設施
+# 基礎設施
 
 透過 npm 全域安裝 serverless 指令
 
@@ -107,7 +105,7 @@ serverless wsgi serve
 最後也是最重要的一個步驟『部署』
 只是說部署前需要有 AWS 的 secret key & token
 
-## 建立 AWS 存取金鑰
+# 建立 AWS 存取金鑰
 
 首先要先有個 AWS 帳號(廢話) ，如果沒有綁定信用卡記得去綁定才能繼續，接下來就可以去就可以去建立鑰匙囉！
 ![](https://i.imgur.com/A34OlY5.png)
@@ -143,7 +141,7 @@ endpoints: ANY - https://4omvn4z7re.execute-api.us-east-1.amazonaws.com/dev
 ![](https://i.imgur.com/tptNSd4.png)
 出現 `hello world`就成功囉！
 
-## 參考
+# 參考
 
 - [sls cli 相關參數](https://serverless.com/framework/docs/providers/aws/cli-reference/)
 - [Serverless](https://serverless.com/)
