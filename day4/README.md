@@ -1,4 +1,4 @@
-# 突發事件 - 需要介紹 S3 容器
+# 突發事件 - 認識與使用 S3 容器
 
 # 前言
 
@@ -6,7 +6,7 @@
 
 Amazon Simple Storage Service(簡稱 AWS S3)是 AWS 的一個線上儲存服務，用戶能夠輕易把檔案儲存到網路伺服器上
 
-# 建立 S3 容器
+# 建立一個公開的 S3 容器
 
 建立一個名為`2019-it-30-bucket`的容器，地區就選與 Lambda 同樣的地區，直接按下左下角的`create`來建立。
 ![](https://i.imgur.com/lfRsTDn.png)
