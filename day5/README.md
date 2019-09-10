@@ -94,15 +94,10 @@ from lib.db import Database
 import psycopg2.extras
 
 class NotifyController(Resource):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.parser = reqparse.RequestParser()
-        self.parser.add_argument(
-            'code', required=True, help='code can not be blank!')
-
     def post(self):
-        args = self.parser.parse_args()
+        parser = reqparse.RequestParser()
+        parser.add_argument('code', required=True, help='code can not be blank!')
+        args = parser.parse_args()
         code = args['code']
         client = {'grant_type': 'authorization_code', 'code': code, 'redirect_uri': 'YOUR_REDIRECT_URI',
                   'client_id': 'YOUR_CLIENT_ID', 'client_secret': 'YOUR_CLIENT_SECRET'}
