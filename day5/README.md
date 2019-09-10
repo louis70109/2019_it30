@@ -219,7 +219,9 @@ _因為這個路由有 CORS 的問題，若透過瀏覽器來的話會出錯，�
 ![](https://i.imgur.com/lEP0AmZ.png)
 
 到了這邊如果沒問題真的是恭喜你，我踩了好多坑 Orz
+
 程式碼都有同步到 Github 上了
+
 https://github.com/louis70109/aws-python-line-notify-auth
 
 ## 參考
