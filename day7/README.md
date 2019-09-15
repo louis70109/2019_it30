@@ -2,50 +2,76 @@
 
 ## 前言
 
-看著前幾天的文章，像我們 notify 驗證的 API 有使用到 `REDIRECT_URI`、`CLIENT_ID` 以及 `CLIENT_SECRET`
+看著前幾天的文章，像我們 notify 驗證的 API 有使用到 `REDIRECT_URI`、`CLIENT_ID` 以及 `CLIENT_SECRET`，或是像 PostgreSQL 的帳號密碼，
 只是說若今天當程式碼變多的時候，抑或是這個參數有給其他 API 使用，那在尋找的時候不僅費工又浪費時間
 那接下來就帶著大家在 serverless.yml 一步步加入變數值，並更改 code。
 
 ## 動手吧！
 
-首先看到裡面會有像是這樣的階層
+用 npm 安裝 serverless 的 `dotenv` 套件
+
+```
+npm i -D serverless-dotenv-plugin
+```
+
+接著加入新的套件到`serverless.yml`
+
+```
+plugins:
+  - serverless-dotenv-plugin
+```
+
+新增`dotenv`到 requirements.txt
+
+```
+python-dotenv==0.10.3
+```
+
+到 api.py 加入下面內容
+
+```
+from dotenv import load_dotenv
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+```
+
+接著新增`.env`並輸入對應的內容
+
+```
+NOTIFY_REDIRECT_URI=
+NOTIFY_CLIENT_ID=
+NOTIFY_CLIENT_SECRET=
+REGION=us-east-2
+SQS_URL=
+SQS_ARN=
+PG_DB=
+PG_HOST=
+PG_NAME=
+PG_PWD=
+PG_PORT=
+```
+
+接著修改有使用到他們的地方，範例如下
+
+```
+import os
+os.getenv("SQS_ARN")
+```
+
+既然有安裝 serverless 的套件了，那 yml 檔也可以使用哦！
 
 ```
 provider:
   name: aws
   runtime: python3.7
-  region: us-east-2
-```
-
-在 name 的同一層加上 `environment`，並在子階層再新增我們 Notify 有用到的參數
-
-```
-provider:
-  name: aws
-  runtime: python3.7
-  region: us-east-2
-  environment:
-    NOTIFY_REDIRECT_URI: 'your notify redirect_uri'
-    NOTIFY_CLIENT_ID: 'client id'
-    NOTIFY_CLIENT_SECRET: 'client secret'
-```
-
-然後在 notify_controller.py 引入 `os` 的套件，並搭配`os.environ`來取參數，如下範例
-
-```
-client = {
-  'grant_type': 'authorization_code', 'code': code,
-  'redirect_uri': os.environ["NOTIFY_REDIRECT_URI"],
-  'client_id': os.environ["NOTIFY_CLIENT_ID"],
-  'client_secret': os.environ["NOTIFY_CLIENT_SECRET"]
-}
+  region: ${env:REGION}
 ```
 
 ## 後記
 
-其實我自己在實作的時候也覺得自己一直手動填超麻煩，以前都習慣有個`.env`來幫我管理這些，
-當然 Serverless 也有 python 的 [dot env 套件](https://serverless.com/plugins/serverless-dotenv-plugin/)，只是說主要還是都在使用 serverless，所以這次就帶大家在 serverless.yml 下設定囉！
-只是說 html 因為目前還不是透過 serverless 來幫忙部署，所以這邊的參數就沒辦法吃設定檔了 😓
+有時候把專案抓下來的時候要找到這些輸入的地方很容易找不到(我有點癡呆)，一般 open source 也都會有一個`.env`的，用`serverless-dotenv-plugin`來幫忙弄就方便許多了，後續有需要再繼續往裡面新增就好了～
+
+最後在搭配 python 的 [dot env 套件](https://serverless.com/plugins/serverless-dotenv-plugin/)使用就讓整個好用多了 🤣，只是說 html 因為目前還不是透過 serverless 來幫忙部署，所以這邊的參數就沒辦法吃設定檔了 😓
 
 ## 參考
 

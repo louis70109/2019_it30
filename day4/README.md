@@ -1,12 +1,14 @@
-# 突發事件 - 認識與使用 S3 容器
+# 認識與使用 S3 容器
 
-# 前言
+## 前言
 
 因為 serverless 只能放關於 API 的程式碼，因此我們需要把 html 靜態檔案放在 S3 裡，
 
-Amazon Simple Storage Service(簡稱 AWS S3)是 AWS 的一個線上儲存服務，用戶能夠輕易把檔案儲存到網路伺服器上
+Amazon Simple Storage Service(簡稱 AWS S3)是 AWS 的一個線上儲存服務，用戶能夠輕易把檔案儲存到網路伺服器上，可能有些朋友會把它當成雲端硬碟看待，但其實還能像是傳靜態檔案上去，若有寫前端框架的朋友通常都會需要把程式碼打包成靜態檔案再部署，然而這邊把他打包送上去後，S3 會給一個名為 Object Url 的網址，可以透過這個網址去執行網頁裡面的內容(如 AJAX、Axios...)，並可以透過 cloudfont 去弄成 CDN(扯遠了)，簡單說他還有很多不一樣的功能應用等著大家去用～
 
-# 建立一個公開的 S3 容器
+接下來就來建立一個公開的 S3 容器，這邊就不會提到權限如何控管哦！
+
+## 建立一個公開的 S3 容器
 
 建立一個名為`2019-it-30-bucket`的容器，地區就選與 Lambda 同樣的地區，直接按下左下角的`create`來建立。
 ![](https://i.imgur.com/lfRsTDn.png)
@@ -21,6 +23,8 @@ Amazon Simple Storage Service(簡稱 AWS S3)是 AWS 的一個線上儲存服務�
 ![](https://i.imgur.com/qxquZI1.png)
 接著一樣點到第三個個選項，選到`Access Control List`，看到`Access for bucket owner`這個選項的`Canonical ID`，選項都全部打勾之後再來調整，這樣之後的 HTML 檔案外面就看得到了。
 ![](https://i.imgur.com/uZfyrAQ.png)
+
+## 測試
 
 接著上傳一個`index.html`的檔案來測試
 
