@@ -129,3 +129,5 @@ iamRoleStatements:
 ## 結論
 
 使用 SQS 這類服務都會需要透過`boto3`來幫忙串接，最需要注意的就是 IAM role，因為在本地端的 key 通常權限都是最大的，但上到 AWS 上就會有權限的問題，所以要記得加入 IAM 哦！
+
+專案也會持續更新，更多詳情可以 follow 我的專案 [aws-python-line-api](https://github.com/louis70109/aws-python-line-api)。
