@@ -51,6 +51,8 @@ echo "Flask==1.0.2" > requirements.txt
 pip install -r requirements.txt -—user
 ```
 
+> serverless-python-requirements 同樣也支持 pipenv 哦，如果想完全擋掉的話可以[參考](https://www.npmjs.com/package/serverless-python-requirements#pipenv-support-sparklescakesparkles)
+
 # 更改設定檔
 置換以下內容至 serverless.yml，讓 WSGI 去處理路由。
 
