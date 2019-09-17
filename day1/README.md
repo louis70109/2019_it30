@@ -28,6 +28,10 @@ serverless.yaml 是該專案的設定檔，可以把它想像成是 CloudFormati
 
 ![](https://i.imgur.com/hC1Dgz4.png)
 
+# AWS Lambda 限制
+
+![](https://i.imgur.com/mC7Y9XY.png)
+
 # 安裝與使用
 
 [serverless.yaml 的設定參考](https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/)
@@ -50,3 +54,4 @@ serverless.yaml 是該專案的設定檔，可以把它想像成是 CloudFormati
 
 - [Serverless wiki](https://zh.wikipedia.org/wiki/%E7%84%A1%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%A8%88%E7%AE%97)
 - [Serverless 優缺點](https://denny.qollie.com/2016/05/22/serverless-simple-crud/)
+- [AWS Lambda 限制](https://docs.aws.amazon.com/zh_tw/lambda/latest/dg/limits.html)
