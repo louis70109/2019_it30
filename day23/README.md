@@ -1,1 +1,3 @@
-# LIFF implement
+# LIFF 介紹
+
+一開始都只能使用 curl 來增加項目，現在可以在線上做，向卡米狗就用一個路由帶 query string 來判斷，再轉打去其他路由
