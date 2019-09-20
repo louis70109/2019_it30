@@ -64,6 +64,12 @@ class LineMessageApiWebhookController(Resource):
         return 'OK'
 ```
 
+用任何語言都會看到回傳會有 200, 'OK'...回傳的成功訊息，在內部系統的部分在處理時要考慮到回傳時間的問題，一般來說如果回傳的時間大於 1 秒的話就有可能失效，或許有些朋友有測試過大於 1 秒也可以，但最好還是於時間內回覆哦！
+
+> 以下圖片來自 https://engineering.linecorp.com/zh-hant/blog/line-device-10/
+
+![https://engineering.linecorp.com/zh-hant/blog/line-device-10/](https://i.imgur.com/nrJl2XM.png)
+
 接著在 api.py 加入下面兩段 code，新增一個`webhook`的路由
 
 ```
@@ -78,6 +84,8 @@ api.add_resource(LineMessageApiWebhookController, '/webhook')
 ```
 sls deploy
 ```
+
+> 現在在接這種第三方的 API 時最好都使用 `https`，而使用 Serverless 的好處就是 AWS 在部署完之後會送你一個含有 SSL 的網址～
 
 把網址貼到 `webhook URL` 上並在尾端加上 `/webhook`
 ![](https://i.imgur.com/uoiU96f.png)

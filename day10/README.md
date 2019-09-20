@@ -31,10 +31,48 @@ Message API 支援以下格式
 - Imagemap message
 - Template message
 - Flex message
-  > 詳細內容可以參考 [LINE doc](https://developers.line.biz/en/docs/messaging-api/message-types/)
+
+> 詳細內容可以參考 [LINE doc](https://developers.line.biz/en/docs/messaging-api/message-types/)
 
 ![line sample 1](https://i.imgur.com/PLWylFy.png)
 ![line sample 2](https://i.imgur.com/lInGVV0.png)
+
+## 回傳格式
+
+Message API 回傳格式都是一個陣列的格式，一開始在接的時候都沒注意到一直瘋狂出錯，事實上這樣陣列對 Server 有個好處就是當一次需要送較多訊息時格式會比較統一，只是對於有潔癖的開發者來說每次都要多打`[0]`會覺得有點髒 🤣
+
+```
+{
+  'events': [{
+    'replyToken': '00000000000000000000000000000000',
+    'type': 'message',
+    'timestamp': 1568983962754,
+    'source': {
+      'type': 'user',
+      'userId': 'Udeadbeefdaaaaefdeadbeefdeadbeef'
+    },
+    'message': {
+      'id': '100001',
+      'type': 'text',
+      'text': 'Hello, world'
+    }
+  }, {
+    'replyToken': 'ffffffffffffffffffffffffffffffff',
+    'type': 'message',
+    'timestamp': 1568983962754,
+    'source': {
+      'type': 'user',
+      'userId': 'Udeadbeeaaaaefdeadbeefdeadbeef'
+    },
+    'message': {
+      'id': '100002',
+      'type': 'sticker',
+      'packageId': '1',
+      'stickerId': '1'
+    }
+  }]
+}
+```
 
 ## 結論
 

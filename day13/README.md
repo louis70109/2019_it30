@@ -5,8 +5,7 @@
 以前從花落落的文件中找到一個方法，像是使用 push message
 ![](https://i.imgur.com/ZZVg7mI.png)
 我都會笨笨的 call API 的方法去執行功能，殊不知 SDK 早就包好了，然後邊做邊罵自己為什麼要解這些 JSON (拍桌)
-到了現在比較會看文件，才知道原來以前是自己雷自己 (捶心肝)...好了不廢話了，來簡單介紹一下一些常用的方法 😎
-
+到了現在比較會看文件，才知道原來以前是自己雷自己 (捶心肝)...接下來就試玩幾個我覺得常會用到的 method 好了不廢話了，來簡單介紹一下一些常用的方法 😎
 
 ## get_profile
 
@@ -60,7 +59,9 @@ def get(self):
 
 ![](https://i.imgur.com/x7fgvhY.png)
 
-## LocationSendMessage
+## Reply Mode
+
+### LocationSendMessage
 
 這邊直接拿 SDK 的範例來用，若是有在做商家功能的機器人可以使用這個方式讓使用者接收到商家訊息～
 
@@ -73,11 +74,50 @@ self.line_bot_api.reply_message(token, LocationSendMessage(
 ))
 ```
 
+### StickerSendMessage
+
+這個方法可以搭配使用，讓整個回應看起來跟真實吧！
+
+> 不知道清單能用什麼可以[參考](https://developers.line.biz/media/messaging-api/sticker_list.pdf)，
+
+```
+self.line_bot_api.reply_message(token, StickerSendMessage(package_id='1',sticker_id='1'))
+```
+
+### Button Template
+
+```
+buttons_template_message = TemplateSendMessage(
+    alt_text='Buttons template',
+    template=ButtonsTemplate(
+        thumbnail_image_url=f'{picture}.jpg',
+        title='Menu',
+        text='Please select',
+        actions=[
+            PostbackAction(
+                label='postback',
+                display_text='postback text',
+                data='action=buy&itemid=1'
+            ),
+            MessageAction(
+                label='message',
+                text='message text'
+            ),
+            URIAction(
+                label='uri',
+                uri='http://example.com/'
+            )
+        ]
+    )
+)
+self.line_bot_api.reply_message(token, buttons_template_message)
+```
+
 ![](https://i.imgur.com/T30NNHt.png)
 
 ## 結論
 
-簡單玩了幾個 API，大概就這幾個比較常搭配著使用，其實有好多 API 我都還不是很清楚用法 🤣
+簡單玩了幾個 API，大概就這幾個比較常搭配著使用，用過之後才知道其實有好多 API 我都還不是很清楚用法 🤣
 而 LINE 最近更新了他們文件的功能，多了一個`Try`的按鈕提供使用者可以線上直接測 API，只是像是 push messages 這個就剛好沒有 😓，但至少有很多 API 不用通靈去測試，直接拿著 Token 在網頁上測試嚕！
 [Doc Sample](https://developers.line.biz/en/reference/messaging-api/?fbclid=IwAR3gExZwTJjXUudorqkIo-cHVk9yoONen7hnDlh4okntWyveLBYHXzZWJ00#get-number-of-push-messages)
 ![](https://i.imgur.com/xfk13a3.png)
