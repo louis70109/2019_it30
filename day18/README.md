@@ -1,1 +1,1 @@
-# AWS IoT in Serverless
+# rate to push data

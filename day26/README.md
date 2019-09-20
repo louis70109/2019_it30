@@ -1,4 +1,4 @@
-# create domain route53
+# Use CDN (1) - create Certificate
 
 讓使用者使用像這樣子的路由能看嗎 🤣，一般的使用者根本記不起來
 ![](https://i.imgur.com/vLLfKyr.png)
