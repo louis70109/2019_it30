@@ -122,6 +122,8 @@ self.line_bot_api.reply_message(token, buttons_template_message)
 [Doc Sample](https://developers.line.biz/en/reference/messaging-api/?fbclid=IwAR3gExZwTJjXUudorqkIo-cHVk9yoONen7hnDlh4okntWyveLBYHXzZWJ00#get-number-of-push-messages)
 ![](https://i.imgur.com/xfk13a3.png)
 
+Code is [here](https://github.com/louis70109/aws-python-line-api/blob/master/controller/message_api_controller.py)
+
 ## 參考
 
 [LINE develop page](https://developers.line.biz/en/reference/messaging-api/?fbclid=IwAR3gExZwTJjXUudorqkIo-cHVk9yoONen7hnDlh4okntWyveLBYHXzZWJ00#get-number-of-push-messages)
