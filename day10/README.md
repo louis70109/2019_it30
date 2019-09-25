@@ -1,4 +1,4 @@
-# Day 10 - LINE 的服務都玩了，怎麼能忘了 Message api (Bot) 呢？ (1)
+# Day 10 - LINE 的服務都玩了，怎麼能忘了 Message api (Bot) 呢？ (1) - 介紹
 
 ## 簡介
 
