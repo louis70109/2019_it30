@@ -1,5 +1,6 @@
-# Message API 應聲蟲實作
+# LINE 的服務都玩了，怎麼能忘了 Message api (Bot) 呢？ (3) 應聲蟲實作
 
+## 實作
 新增兩個 LINE Channel key 至 `.env`
 
 ```
