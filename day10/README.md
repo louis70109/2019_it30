@@ -1,4 +1,6 @@
-# Message api 簡介
+# Day 10 - LINE 的服務都玩了，怎麼能忘了 Message api (Bot) 呢？ (1) - 介紹
+
+## 簡介
 
 LINE 在 2016 年 9 月底發表了 Messaging API 功能，用戶可以透過 Messaging API 將自家的服務內容串聯到 LINE@ 上。
 

@@ -1,7 +1,10 @@
-# Message api 申請一步步
+# LINE 的服務都玩了，怎麼能忘了 Message api (Bot) 呢？ (2) - 申請一步步
 
+## 前言
 今天會帶大家如何一步一步的建立 Message api 以及需要注意設定的地方。
 
+
+## 實作
 1. 首先先到 https://developers.line.biz/zh-hant/ ，點選右上角的大頭貼並選擇 `Add new provider`
    ![](https://i.imgur.com/ZDumwCq.jpg)
 2. 接著在 Provider name 填上自己的想要的名稱
