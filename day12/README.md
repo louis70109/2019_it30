@@ -21,7 +21,7 @@ pip install -r requirements.txt --user
 
 在 controller/ 底下新增一個 message_api_controller.py 並輸入以下程式
 
-```
+```python
 from flask import Flask, request, abort
 from flask_restful import Resource
 import json
@@ -72,7 +72,7 @@ class LineMessageApiWebhookController(Resource):
 
 接著在 api.py 加入下面兩段 code，新增一個`webhook`的路由
 
-```
+```python
 from controller.message_api_controller import LineMessageApiWebhookController
 api.add_resource(LineMessageApiWebhookController, '/webhook')
 ```

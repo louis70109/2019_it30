@@ -16,7 +16,7 @@ Creates a rich menu. You must upload a rich menu image and link the rich menu to
 
 https://developers.line.biz/en/reference/messaging-api/#create-rich-menu
 
-```
+```python
 if usage == 'create':
     rich_menu_to_create = RichMenu(
         size=RichMenuSize(width=2500, height=843),

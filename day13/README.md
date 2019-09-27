@@ -11,7 +11,7 @@
 
 回傳使用者的個人狀態，可以透過每次的 reply 去拿到使用者的資訊，一般使用的話都話把它存下來，等之後有介接其他服務時方便使用 userId 去判斷使用者。
 
-```
+```python
 profile = line_bot_api.get_profile(event['events'][0]['source']['userId'])
 
 try:
@@ -38,7 +38,7 @@ line_bot_api.reply_message(token, [
 
 建立一個 GET 的路由在 /webhook 上，收到 query string 的 msg 的值並找到所有使用者的 id 並逐一推送訊息。
 
-```
+```python
 line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_TOKEN'))
 handler = WebhookHandler(os.getenv('LINE_CHANNEL_SECRET_KEY'))
 
@@ -65,7 +65,7 @@ def get(self):
 
 這邊直接拿 SDK 的範例來用，若是有在做商家功能的機器人可以使用這個方式讓使用者接收到商家訊息～
 
-```
+```python
 self.line_bot_api.reply_message(token, LocationSendMessage(
     title='my location',
     address='Tokyo',
@@ -80,13 +80,13 @@ self.line_bot_api.reply_message(token, LocationSendMessage(
 
 > 不知道清單能用什麼可以[參考](https://developers.line.biz/media/messaging-api/sticker_list.pdf)，
 
-```
+```python
 self.line_bot_api.reply_message(token, StickerSendMessage(package_id='1',sticker_id='1'))
 ```
 
 ### Button Template
 
-```
+```python
 buttons_template_message = TemplateSendMessage(
     alt_text='Buttons template',
     template=ButtonsTemplate(

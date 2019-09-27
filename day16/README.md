@@ -20,7 +20,7 @@
 我把上一篇的 richmenu_api_controller.py 的 create 部分改編了一下，
 增加了讀 `state` Query string 的一個參數，用`up`&`down`來簡單判斷上傳的內容要傳什麼
 
-```
+```python
 if usage == 'create':
             rich_menu_to_create = None
             if request.args.get('state') == 'up':
@@ -70,7 +70,7 @@ if usage == 'create':
 
 接著回到 `message_api_controller.py` 把前幾篇的 reply SDK code 先註解掉，並加入以下的 code
 
-```
+```python
 message = event['events'][0]['message']['text']
 if message == "上一頁" or message == "下一頁":
     try:
