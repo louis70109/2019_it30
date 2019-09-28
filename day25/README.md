@@ -1,7 +1,10 @@
 # Lambda 好像有時候會回應失敗？用 warm-up 來熱機吧
 
-decorator
-看一下 npm 套件庫裡的 [Serverless-plugin-warmup](https://www.npmjs.com/package/serverless-plugin-warmup)，裡面介紹了很多參數可以使用，以下會簡介如何引入它。
+## 前言
+
+本篇會介紹 npm 套件庫裡的 [Serverless-plugin-warmup](https://www.npmjs.com/package/serverless-plugin-warmup)，裡面介紹了很多參數可以使用，以下會簡介如何引入它。
+
+## 實作
 
 透過`npm`來安裝套件
 
@@ -88,6 +91,9 @@ def xxx():
 ![](https://i.imgur.com/skMkdmg.png)
 
 ## 結論
+
+Warm-up 的機制就是透過建立一個 Lambda 來打一個 flag 到其他 Lambda 來他們別進入睡眠模式，但總是會有人考慮費用的問題，可以參考下圖，若是你建立了一個簡單的服務然後上線了，AWS 給你了一百萬個請求的量，我覺得一個月的請求可以到 100 萬應該是服務有點規模的情況，一個月能到這個量相信你也有一定的能力養它 🤣，爾後每一百萬個請求才六塊台幣，可能比 GCP 還貴，但其實以我來說這樣已經很夠用，而且還扛得住
+![](https://i.imgur.com/LCJh98n.png)
 
 ## 參考
 
