@@ -1,4 +1,4 @@
-# 接 Richmenu API
+# 串接 LINE Richmenu API
 
 ## 前言
 
