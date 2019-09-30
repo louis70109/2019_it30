@@ -1,4 +1,4 @@
-# richmenu 介紹
+# LINE Richmenu 介紹
 
 Rich menu 是一個 LINE 提供給 chatbot 的圖文選單，可以再上面設定很多各式各樣的功能，下圖為一個範例
 ![](https://i.imgur.com/AkZnaWs.png)
