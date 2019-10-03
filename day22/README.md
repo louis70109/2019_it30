@@ -53,3 +53,18 @@ https://line.me/R/@1234
 if dt:
 			return {'result': dt}, 200
 ```
+
+改用
+
+```python
+from flask import redirect
+if dt:
+ 		return redirect("https://line.me/R/ti/p//@127ojvgz", code=302)
+```
+
+如此一來在登入驗證完之後就會把使用者導向到加好友的頁面，在手機上若已經加過好友則會直接導到機器人對話窗上，如此一來就可以讓使用者在加入好友的同時也綁定完帳號，在未來使用的時候 api 這邊也比較好控管使用者的權限問題。
+
+## 結論
+
+像是我自己做的健身記錄機器人，就是以這個方法下去實作，有聽過一些朋友跟我反應這樣的方法多此一舉，但我認為若是有網頁的話也是套用 LINE SSO 來實作，就可以讓兩個入口去統一，在狀態流上就能比較好控制了。
+![](https://i.imgur.com/8fKlsAt.jpg)
