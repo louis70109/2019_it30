@@ -1,5 +1,6 @@
 # LINE LOGIN 介紹
 
+## 前言
 LINE 中文版也上線啦 [URL](https://developers.line.biz/zh-hant/docs/line-login/overview/?fbclid=IwAR2I2VWF8Z1xS5wdSKlkWQiMFJphdjH3Qi_RnoJaCynQUG2GBM-PDiWJEjE)
 去某些網站登入你可能會有像下面這樣
 ![](https://i.imgur.com/GNSYfYX.png)
