@@ -1,8 +1,8 @@
-# 最常用的搭配 Login + Message API to save User profile
+# 最常用的搭配 - 使用 Login + Message API 讓使用者在掃描加入好友時就綁定帳號
 
 ## 前言
 
-在第 Day 13 Python SDK 試玩的時候使用過 get_profile，當時使用時就是在每次訊息來的時候才去 SQL 儲存使用者資訊，若只是單純想要使用者資訊的話這樣用好像有點多餘 😓
+在第 Day 13 Python SDK 試玩的時候使用過 get_profile，當時使用時就是在每次訊息來的時候才去 SQL 儲存使用者資訊，若只是單純想要使用者資訊的話這樣用好像有點多餘 😓，以下就帶各位簡單的實作。
 
 ## 實作
 
@@ -21,7 +21,7 @@
   <script>
     $.ajax({
       url:
-        "https://fu2eps8jsj.execute-api.us-east-1.amazonaws.com/dev/line/auth",
+        "https://YOUR_SLS_DOMAIN.us-east-1.amazonaws.com/dev/line/auth",
       method: "POST",
       success: function(data) {
         window.location.replace(data.result);
