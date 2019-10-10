@@ -10,7 +10,11 @@
 
 ![](https://i.imgur.com/vLLfKyr.png)
 
-## 實作
+## 開始之前
+
+我已經有先在 Route53 註冊了一個 `nijialin.com` 的 domain，`.com`大概 10 美金左右，若是有在其他地方註冊域名的話要找一下相關文章把它導進 Route53 哦！
+
+## 註冊 Certificate
 
 - 先來到 Certificate Manager 頁面，按下左下角的這個
 
@@ -33,3 +37,40 @@
 
 最後就等他完成嚕！將將
 ![](https://i.imgur.com/495PjEw.png)
+接著我們到 API Gateway 找到左邊的 `Custom Domain Name`，我們要來建立屬於這個 API 的 Domain 了
+![](https://i.imgur.com/BzkvgUR.png)
+按下藍色的按鈕之後，輸入`Domain name`以及選擇剛剛註冊的 Certificate 後按下 `Save`
+![](https://i.imgur.com/xwBEC5O.png)
+他就會開始初始化剛剛的設定，這邊大概需要等 15 分鐘左右
+![](https://i.imgur.com/dLMaXrx.png)
+在此同時我們就去新增專案裡的套件 [Domain-Manager](https://www.npmjs.com/package/serverless-domain-manager)
+
+```Bash
+npm install serverless-domain-manager --save-dev
+```
+
+並且在`plugin`下加入套件
+
+```yaml
+plugins:
+  - serverless-domain-manager
+```
+
+在`custom`底下加入
+
+```yaml
+custom:
+  domainName:
+    default:
+      domainName: line.nijialin.com
+      certificateName: "*.nijialin.com"
+      createRoute53Record: true
+      endpointType: edge
+```
+
+等待前面初始化成功之後部署這個專案`sls deploy`之後就會看到剛剛註冊的域名啟動囉！
+![](https://i.imgur.com/Pn2TyMD.png)
+
+## 結論
+
+在建立 Certificate 那邊倒沒什麼問題，畢竟需要一個 SSL，只是到了建立 domain 這邊遇到了很怪的問題，一般來說使用 serverless 框架來跑的話只要照的文件裡說的 `serverless create_domain`就會幫忙註冊，而且可以依照自己開發環境去自動設定，在公司的專案中這樣使用是沒問題的，在是在寫這篇文章時卻只能使用以上的方法來替代使用，雖然結果是一樣的，但是用起來實在是很不符合邏輯，google 也沒找到類似的問題，或許這個問題還要多實測幾次才夠...😭
