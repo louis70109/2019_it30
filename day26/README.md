@@ -1,4 +1,4 @@
-# Use CDN (1) - create Certificate
+# Use CDN (1) - 建立 Certificate 與 Domain
 
 ## 簡介
 
