@@ -1,4 +1,4 @@
-# Use CDN (2) - create Certificate
+# Use CDN (2) - CloudFront
 
 ## 前言
 
